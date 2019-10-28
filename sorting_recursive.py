@@ -6,17 +6,23 @@ def merge(items1, items2):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
+	items = []
 	# Repeat until one list is empty.
-
-	# ==TODO==
-	# Find minimum item in both lists,
-	# and then append it to new list.
-
-	# ==TODO==
+	while items1 and items2:
+		# Find minimum item in both lists,
+		# and then append it to new list.
+		if items1[0] < items2[0]:
+			items.append(items1[0])
+			del items1[0]
+		else:
+			items.append(items2[0])
+			del items2[0]
 	# Append remaining items in non-empty list to new list.
-
-	pass
+	if items1:
+		items = items + items1
+	elif items2:
+		items = items + items2
+	return items
 
 def split_sort_merge(items):
 	'''
