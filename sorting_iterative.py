@@ -14,8 +14,7 @@ def is_sorted(items):
 			if previous_item > current_item:
 				return False
 	# If the loop finishes, then its in order.
-	else:
-		return True
+	return True
 
 def bubble_sort(items):
 	'''
@@ -25,10 +24,10 @@ def bubble_sort(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# Initialize loop variable as `> 0`.
-	swaps = 1
+	# Initialize loop variable.
+	swaps = None
 	# Repeat until all items are in sorted order.
-	while swaps > 0:
+	while swaps > 0 or swaps is None:
 		# Reset number of swaps for this iteration.
 		swaps = 0
 		# Loop through every element.
