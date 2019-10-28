@@ -5,12 +5,17 @@ def is_sorted(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Check that all adjacent items are in order.
-	# Return early if so.
-
-	pass
-
+	for index, current_item in enumerate(items):
+		if index == 0:
+			pass
+		else:
+			previous_item = items[index - 1]
+			# Return early if so.
+			if not previous_item <= current_item:
+				return False
+	else:
+		return True
 
 def bubble_sort(items):
 	'''
