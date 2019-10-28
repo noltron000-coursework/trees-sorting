@@ -7,13 +7,13 @@ def is_sorted(items):
 	'''
 	# Check that all adjacent items are in order.
 	for index, current_item in enumerate(items):
-		if index == 0:
-			pass
-		else:
+		# The first item in items gets a free pass.
+		if index != 0:
 			previous_item = items[index - 1]
-			# Return early if so.
+			# Return early if items is not in order.
 			if not previous_item <= current_item:
 				return False
+	# If the loop finishes, then its in order.
 	else:
 		return True
 
