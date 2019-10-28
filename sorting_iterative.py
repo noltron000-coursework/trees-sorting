@@ -59,17 +59,29 @@ def selection_sort(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Repeat until all items are in sorted order.
+	starter_range = range(len(items))
+	for starter_index in starter_range:
+		# grab value like enumerate() would
+		starter_value = items[starter_index]
+		# initialize smallest index/value
+		smallest_index = starter_index
+		smallest_value = starter_value
 
-	# ==TODO==
-	# Find minimum item in unsorted items.
+		# Find minimum item in unsorted items.
+		checker_range = range(starter_index + 1, len(items))
+		for checker_index in checker_range:
+			# grab value like enumerate() would
+			checker_value = items[checker_index]
+			# initialize comparison
+			if smallest_value > checker_value:
+				smallest_index = checker_index
+				smallest_value = checker_value
 
-	# ==TODO==
-	# Swap it with first unsorted item.
-
-	pass
-
+		# Swap it with starter item; the first unsorted value.
+		items[starter_index] = smallest_value
+		items[smallest_index] = starter_value
+	return items
 
 def insertion_sort(items):
 	'''
