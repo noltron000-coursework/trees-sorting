@@ -13,7 +13,7 @@ def is_sorted(items):
 			# Return early if items is not in order.
 			if previous_item > current_item:
 				return False
-	# If the loop finishes, then its in order.
+	# If the loop finishes, then it is in order.
 	return True
 
 def bubble_sort(items):
@@ -24,7 +24,7 @@ def bubble_sort(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# Initialize loop variable.
+	# Initialize loop variables.
 	# ==NOTE==
 	# These variables are initialized to some weird integers.
 	# Swaps gets the while loop going, and loops becomes 0.
@@ -62,18 +62,20 @@ def selection_sort(items):
 	# Repeat until all items are in sorted order.
 	starter_range = range(len(items))
 	for starter_index in starter_range:
-		# grab value like enumerate() would
+		# Grab value like enumerate() would.
 		starter_value = items[starter_index]
-		# initialize smallest index/value
+
+		# Initialize smallest index/value.
 		smallest_index = starter_index
 		smallest_value = starter_value
 
 		# Find minimum item in unsorted items.
 		checker_range = range(starter_index + 1, len(items))
 		for checker_index in checker_range:
-			# grab value like enumerate() would
+			# Grab value like enumerate() would
 			checker_value = items[checker_index]
-			# initialize comparison
+
+			# Initialize comparison here.
 			if smallest_value > checker_value:
 				smallest_index = checker_index
 				smallest_value = checker_value
