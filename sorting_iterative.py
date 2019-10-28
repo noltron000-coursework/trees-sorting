@@ -93,13 +93,29 @@ def insertion_sort(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
-	# Repeat until all items are in sorted order.
-
-	# ==TODO==
 	# Take first unsorted item.
+	# Repeat until all items are in sorted order.
+	for starter_index in range(len(items)):
+		# Grab value like enumerate() would.
+		starter_value = items[starter_index]
 
-	# ==TODO==
-	# Insert it in sorted order in front of items.
+		# Initialize insertion index.
+		insertion_index = starter_index
 
-	pass
+		# Insert it in sorted order in front of items.
+		for sorted_index in reversed(range(starter_index)):
+			# Grab value like enumerate() would.
+			sorted_value = items[sorted_index]
+			if sorted_value > starter_value:
+				insertion_index = sorted_index
+
+		# Remove item from current location.
+		items = items[:starter_index] + items[starter_index + 1:]
+		# Insert item at new location.
+		items = items[:insertion_index] + [starter_value] + items[insertion_index:]
+	# ==FIXME==
+	# For some reason, the sorted list is not returning right.
+	# It is not showing up properly when sorting.py is ran.
+	# It may be a problem with sorting.py script itself.
+	print(f'Sorted items:  {str(items)} <-- actual')
+	return items
