@@ -33,16 +33,16 @@ def split_sort_merge(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Split items list into approximately equal halves.
-
-	# ==TODO==
+	items1 = items[:len(items)//2]
+	items2 = items[len(items)//2:]
 	# Sort each half using any other sorting algorithm.
+	items1.sort()
+	items2.sort()
 
-	# ==TODO==
 	# Merge sorted halves into one list in sorted order.
-
-	pass
+	items = merge(items1, items2)
+	return items
 
 def merge_sort(items):
 	'''
