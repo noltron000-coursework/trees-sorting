@@ -25,13 +25,19 @@ def bubble_sort(items):
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
 	# Initialize loop variable.
-	swaps = None
+	# ==NOTE==
+	# These variables are initialized to some weird integers.
+	# Swaps gets the while loop going, and loops becomes 0.
+	swaps = 1
+	loops = -1
 	# Repeat until all items are in sorted order.
-	while swaps > 0 or swaps is None:
+	while swaps > 0:
 		# Reset number of swaps for this iteration.
 		swaps = 0
-		# Loop through every element.
-		for index in range(len(items)):
+		# Increment the iteration counter by one.
+		loops += 1
+		# Loop through every element (up to loops).
+		for index in range(len(items) - loops):
 			# The first item gets a free pass.
 			if index != 0:
 				current_item = items[index]
