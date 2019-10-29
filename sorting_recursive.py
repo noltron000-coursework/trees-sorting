@@ -52,20 +52,21 @@ def merge_sort(items):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Check base case: the list is so small
 	# that it is already sorted.
+	if len(items) == 1:
+		return items
 
-	# ==TODO==
 	# Split items list into approximately equal halves.
-
-	# ==TODO==
+	items1 = items[:len(items)//2]
+	items2 = items[len(items)//2:]
 	# Sort each half by recursively calling merge sort.
+	items1 = merge_sort(items1)
+	items2 = merge_sort(items2)
 
-	# ==TODO==
 	# Merge sorted halves into one list in sorted order.
-
-	pass
+	items = merge(items1, items2)
+	return items
 
 def partition(items, low, high):
 	'''
