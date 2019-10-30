@@ -49,7 +49,6 @@ def bubble_sort(items):
 					items[index - 1] = current_item
 					# Mark number of swaps.
 					swaps += 1
-	return items
 
 def selection_sort(items):
 	'''
@@ -83,7 +82,6 @@ def selection_sort(items):
 		# Swap it with starter item; the first unsorted value.
 		items[starter_index] = smallest_value
 		items[smallest_index] = starter_value
-	return items
 
 def insertion_sort(items):
 	'''
@@ -110,12 +108,6 @@ def insertion_sort(items):
 				insertion_index = sorted_index
 
 		# Remove item from current location.
-		items = items[:starter_index] + items[starter_index + 1:]
+		items[:] = items[:starter_index] + items[starter_index + 1:]
 		# Insert item at new location.
-		items = items[:insertion_index] + [starter_value] + items[insertion_index:]
-	# ==FIXME==
-	# For some reason, the sorted list is not returning right.
-	# It is not showing up properly when sorting.py is ran.
-	# It may be a problem with sorting.py script itself.
-	print(f'Sorted items:  {str(items)} <-- actual')
-	return items
+		items[:] = items[:insertion_index] + [starter_value] + items[insertion_index:]
