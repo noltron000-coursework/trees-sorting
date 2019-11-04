@@ -80,20 +80,36 @@ def partition(items, low, high):
 	# Choose a pivot by selecting first available index.
 	# Pivot starts equal to low, but increases with each swap.
 	pivot = low
+	# ==FIXME==
+	# For now, we also take the value at pivot: the first index.
+	# pivot_value = items[low]
+
+	# ==FIXME==
+	# This is a temporary array to help solidify concepts.
+	low_range = []
+	high_range = []
+
 	# Loop through all other items in range (sans low).
+	# print([pivot] + list(range(low+1, high)))
 	for selected in range(low + 1, high):
 		# Move items less than pivot into front of range.
 		# [low...pivot-1]
-		if selected < pivot:
+		if items[selected] <= items[low]:
+			low_range.append(items[selected])
 			pivot += 1
-			items[pivot], items[check] = items[check], items[pivot]
-		elif selected >= pivot:
+
 			# Move items greater than pivot into back of range.
 			# [pivot+1...high]
-			pass
+		elif items[selected] > items[low]:
+			high_range.append(items[selected])
+
+	# ==FIXME==
+	# This solution helps me understand the function.
+	print(items[low:high])
+	items[low:high] = low_range + [items[low]] + high_range
+	print(items[low:high])
 	# Move pivot item into final position [pivot],
-	# and then return index of pivot
-	items[low], items[pivot] = items[pivot], items[low]
+	# and then return the index of pivot.
 	return pivot
 
 def quick_sort(items, low=None, high=None):
