@@ -68,36 +68,33 @@ def merge_sort(items):
 
 def partition(items, low, high):
 	'''
-		Return index `p` after in-place partitioning given
+		Return index `pivot` after in-place partitioning given
 		items in range `[low...high]` by choosing a pivot
 		(TODO: document your method here) from that range,
-		moving pivot into index `p`, items less than pivot
-		into range `[low...p-1]`, and items greater than
-		pivot into range `[p+1...high]`.
+		moving pivot into index `pivot`, items less than pivot
+		into range `[low...pivot-1]`, and items greater than
+		pivot into range `[pivot+1...high]`.
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
-	# Choose a pivot any way and document
-	# your method in docstring above.
-
-	# ==TODO==
-	# Loop through all items in range.
-	# [low...high]
-
-	# ==TODO==
-	# Move items less than pivot into front of range.
-	# [low...p-1]
-
-	# ==TODO==
-	# Move items greater than pivot into back of range.
-	# [p+1...high]
-
-	# ==TODO==
-	# Move pivot item into final.
-	# position [p] and return index p
-
-	pass
+	# Choose a pivot by selecting first available index.
+	# Pivot starts equal to low, but increases with each swap.
+	pivot = low
+	# Loop through all other items in range (sans low).
+	for selected in range(low + 1, high):
+		# Move items less than pivot into front of range.
+		# [low...pivot-1]
+		if selected < pivot:
+			pivot += 1
+			items[pivot], items[check] = items[check], items[pivot]
+		elif selected >= pivot:
+			# Move items greater than pivot into back of range.
+			# [pivot+1...high]
+			pass
+	# Move pivot item into final position [pivot],
+	# and then return index of pivot
+	items[low], items[pivot] = items[pivot], items[low]
+	return pivot
 
 def quick_sort(items, low=None, high=None):
 	'''
