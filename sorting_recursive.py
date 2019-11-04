@@ -98,8 +98,8 @@ def partition(items, low, high):
 			low_range.append(items[selected])
 			pivot += 1
 
-			# Move items greater than pivot into back of range.
-			# [pivot+1...high]
+		# Move items greater than pivot into back of range.
+		# [pivot+1...high]
 		elif items[selected] > items[low]:
 			high_range.append(items[selected])
 
@@ -121,20 +121,24 @@ def quick_sort(items, low=None, high=None):
 		TODO: Worst case running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Check if high and low range bounds
 	# have default values (not given).
+	if low is None:
+		low = 0
+	if high is None:
+		high = len(items)
 
-	# ==TODO==
-	# Check base case: the list is so small
-	# that it is already sorted.
+	# Base Case:
+	# The list is so small that it is already sorted.
+	if high - low < 0:
+		raise
+	elif high - low < 2:
+		return
 
-	# ==TODO==
-	# Partition items in-place around a pivot
-	# and get index of pivot.
+	# Partition items in-place around a pivot,
+	# and then get the index of that pivot.
+	pivot = partition(items, low, high)
 
-	# ==TODO==
-	# Sort each sublist range by
-	# recursively calling quick sort.
-
-	pass
+	# Recursively call quick_sort to sort each sublist range.
+	quick_sort(items, low, pivot)
+	quick_sort(items, pivot + 1, high)
