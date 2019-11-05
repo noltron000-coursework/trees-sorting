@@ -6,25 +6,28 @@ def counting_sort(numbers):
 		TODO: Running time: ??? Why and under what conditions?
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
-	# ==TODO==
 	# Find range of given numbers (min/max integer values).
+	minimum = min(numbers)
+	maximum = max(numbers)
+	slots = []
+	for number in range(minimum, maximum + 1):
+		slots.append([number, 0])
 
-	# ==TODO==
-	# Create list of counts with a slot
-	# for each number in input range.
-
-	# ==TODO==
 	# Loop over given numbers and
 	# increment each number's count.
+	for number in numbers:
+		index = minimum - number
+		slots[index][1] += 1
 
-	# ==TODO==
 	# Loop over counts and append
 	# that many numbers into output list.
+	result = []
+	for slot in slots:
+		number = slot[0]
+		count = slot[1]
+		result += [number] * count
 
-	# ==FIXME==
-	# Improve this to mutate input
-	# instead of creating new output list.
-
+	numbers[:] = result
 
 def bucket_sort(numbers, num_buckets=10):
 	'''
