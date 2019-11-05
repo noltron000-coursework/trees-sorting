@@ -9,6 +9,8 @@ def counting_sort(numbers):
 	# Find range of given numbers (min/max integer values).
 	minimum = min(numbers)
 	maximum = max(numbers)
+
+	# Create a range of number slots.
 	slots = []
 	for number in range(minimum, maximum + 1):
 		slots.append([number, 0])
@@ -38,7 +40,7 @@ def bucket_sort(numbers, num_buckets=10):
 		TODO: Memory usage: ??? Why and under what conditions?
 	'''
 	# ==TODO==
-	# Find range of given numbers (min/max values)
+	# Find range of given numbers (min/max values).
 
 	# ==TODO==
 	# Create list of buckets to store
