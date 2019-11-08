@@ -46,20 +46,20 @@ class PrefixTree:
 			Return True if this prefix tree
 			is empty (contains no strings).
 		'''
-		# TODO
+		# ==TODO==
 
 	def contains(self, string):
 		'''
 			Return True if this prefix
 			tree contains the given string.
 		'''
-		# TODO
+		# ==TODO==
 
 	def insert(self, string):
 		'''
 			Insert the given string into this prefix tree.
 		'''
-		# TODO
+		# ==TODO==
 
 	def _find_node(self, string):
 		'''
@@ -75,7 +75,7 @@ class PrefixTree:
 			return self.root, 0
 		# Start with the root node
 		node = self.root
-		# TODO
+		# ==TODO==
 
 	def complete(self, prefix):
 		'''
@@ -84,7 +84,7 @@ class PrefixTree:
 		'''
 		# Create a list of completions in prefix tree
 		completions = []
-		# TODO
+		# ==TODO==
 
 	def strings(self):
 		'''
@@ -93,7 +93,7 @@ class PrefixTree:
 		'''
 		# Create a list of all strings in prefix tree
 		all_strings = []
-		# TODO
+		# ==TODO==
 
 	def _traverse(self, node, prefix, visit):
 		'''
@@ -101,7 +101,7 @@ class PrefixTree:
 			traversal. Start at the given node and visit each
 			node with the given function.
 		'''
-		# TODO
+		# ==TODO==
 
 
 def create_prefix_tree(strings):
