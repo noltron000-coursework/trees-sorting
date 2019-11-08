@@ -13,7 +13,7 @@ class PrefixTreeNode:
 	# ==HINT==
 	# Choosing list or dict affects
 	# implementation of all child methods.
-	CHILDREN_TYPE = list
+	CHILDREN_TYPE = dict
 
 	def __init__(self, character=None):
 		'''
