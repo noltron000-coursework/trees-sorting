@@ -13,7 +13,7 @@ class PrefixTreeNode:
 	# ==HINT==
 	# Choosing list or dict affects
 	# implementation of all child methods.
-	CHILDREN_TYPE = None
+	CHILDREN_TYPE = list
 
 	def __init__(self, character=None):
 		'''
@@ -36,6 +36,7 @@ class PrefixTreeNode:
 			tree node terminates a string.
 		'''
 		# Determine if this node is terminal.
+		return self.terminal
 
 	def num_children(self):
 		'''
@@ -43,6 +44,7 @@ class PrefixTreeNode:
 			nodes this prefix tree node has.
 		'''
 		# Determine how many children this node has.
+		return len(self.children)
 
 	def has_child(self, character):
 		'''
@@ -52,6 +54,7 @@ class PrefixTreeNode:
 		'''
 		# Check if given character is
 		# amongst this node's children.
+		return character in self.children
 
 	def get_child(self, character):
 		'''
@@ -62,6 +65,7 @@ class PrefixTreeNode:
 		if self.has_child(character):
 			# Find child node for given character
 			# in this node's children.
+			return self.children[character]
 		else:
 			raise ValueError(
 				'No child exists for character: '\
@@ -75,9 +79,9 @@ class PrefixTreeNode:
 			amongst this node's children.
 		'''
 		if not self.has_child(character):
-			# ==TODO==
 			# Add given character and child node
 			# to this node's children.
+			self.children[character] = child_node
 		else:
 			raise ValueError(
 				'Child exists for character: '\
