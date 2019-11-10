@@ -17,20 +17,19 @@ class PrefixTree:
 		a path from the tree's root node to a terminal node
 		that marks the end of the string.
 	'''
-
-	# Constant for the start character stored in the prefix tree's root node
-	START_CHARACTER = ''
+	# Constant for the start character
+	# stored in the prefix tree's root node.
 
 	def __init__(self, strings=None):
 		'''
 			Initialize this prefix tree and
 			insert the given strings, if any.
 		'''
-		# Create a new root node with the start character
+		# Create a new root node with the start character.
 		self.root = PrefixTreeNode(PrefixTree.START_CHARACTER)
-		# Count the number of strings inserted into the tree
+		# Count the number of strings inserted into the tree.
 		self.size = 0
-		# Insert each string, if any were given
+		# Insert each string, if any were given.
 		if strings is not None:
 			for string in strings:
 				self.insert(string)
@@ -70,10 +69,10 @@ class PrefixTree:
 			node. Search is done iteratively with a loop
 			starting from the root node.
 		'''
-		# Match the empty string
+		# Match the empty string.
 		if len(string) == 0:
 			return self.root, 0
-		# Start with the root node
+		# Start with the root node.
 		node = self.root
 		# ==TODO==
 
@@ -82,7 +81,7 @@ class PrefixTree:
 			Return a list of all strings stored in this
 			prefix tree that start with the given prefix string.
 		'''
-		# Create a list of completions in prefix tree
+		# Create a list of completions in prefix tree.
 		completions = []
 		# ==TODO==
 
@@ -91,7 +90,7 @@ class PrefixTree:
 			Return a list of all strings
 			stored in this prefix tree.
 		'''
-		# Create a list of all strings in prefix tree
+		# Create a list of all strings in prefix tree.
 		all_strings = []
 		# ==TODO==
 
@@ -102,7 +101,6 @@ class PrefixTree:
 			node with the given function.
 		'''
 		# ==TODO==
-
 
 def create_prefix_tree(strings):
 	print(f'strings: {strings}')
@@ -126,7 +124,9 @@ def create_prefix_tree(strings):
 		print(f'contains({string!r}): {result}')
 
 	print('\nSearching for strings not in tree:')
-	prefixes = sorted(set(string[:len(string)//2] for string in strings))
+	prefixes = sorted(
+		set(string[:len(string)//2] for string in strings)
+	)
 	for prefix in prefixes:
 		if len(prefix) == 0 or prefix in strings:
 			continue
@@ -145,14 +145,22 @@ def create_prefix_tree(strings):
 	print(f'matches? {matches}')
 
 if __name__ == '__main__':
-	# Create a dictionary of tongue-twisters with similar words to test with
+	# Create a dictionary of tongue-twisters
+	# with similar words to test with.
 	tongue_twisters = {
-		'Seashells': 'Shelly sells seashells by the sea shore'.split(),
-		# 'Peppers': 'Peter Piper picked a peck of pickled peppers'.split(),
-		# 'Woodchuck': ('How much wood would a wood chuck chuck'
-		#				' if a wood chuck could chuck wood').split()
+		'Seashells': (
+			'Shelly sells seashells by the sea shore'
+		).split(),
+		# 'Peppers': (
+		# 	'Peter Piper picked a peck of pickled peppers'
+		# ).split(),
+		# 'Woodchuck': (
+		# 	'How much wood would a wood chuck chuck'
+		# 	' if a wood chuck could chuck wood'
+		# ).split()
 	}
-	# Create a prefix tree with the similar words in each tongue-twister
+	# Create a prefix tree with the similar
+	# words in each tongue-twister.
 	for name, strings in tongue_twisters.items():
 		print('\n' + '='*80 + '\n')
 		print(f'{name} tongue-twister:')
