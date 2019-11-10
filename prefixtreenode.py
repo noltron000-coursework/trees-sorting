@@ -40,7 +40,7 @@ class PrefixTreeNode:
 
 	def num_children(self):
 		'''
-			Return the number of children 
+			Return the number of children
 			nodes this prefix tree node has.
 		'''
 		# Determine how many children this node has.
@@ -68,8 +68,8 @@ class PrefixTreeNode:
 			return self.children[character]
 		else:
 			raise ValueError(
-				'No child exists for character: '\
-				f'"{character!r}"'
+				'No child exists for character:'
+				f' "{character!r}"'
 			)
 
 	def add_child(self, character, child_node):
@@ -84,8 +84,8 @@ class PrefixTreeNode:
 			self.children[character] = child_node
 		else:
 			raise ValueError(
-				'Child exists for character: '\
-				f'"{character!r}"'
+				'Child exists for character:'
+				f' "{character!r}"'
 			)
 
 	def __repr__(self):
