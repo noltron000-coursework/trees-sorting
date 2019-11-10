@@ -19,6 +19,7 @@ class PrefixTree:
 	'''
 	# Constant for the start character
 	# stored in the prefix tree's root node.
+	START_CHARACTER = '^'
 
 	def __init__(self, strings=None):
 		'''
@@ -45,20 +46,42 @@ class PrefixTree:
 			Return True if this prefix tree
 			is empty (contains no strings).
 		'''
-		# ==TODO==
+		return self.root.num_children() == 0
 
 	def contains(self, string):
 		'''
 			Return True if this prefix
 			tree contains the given string.
 		'''
-		# ==TODO==
+		# Initialize node.
+		node = self.root
+		# Iterate through string.
+		for character in string:
+			if node.has_child(character):
+				node = node.children[character]
+			else:
+				return False
+		return node.is_terminal()
 
 	def insert(self, string):
 		'''
 			Insert the given string into this prefix tree.
 		'''
-		# ==TODO==
+		# Initialize node.
+		node = self.root
+		delta = False
+		# Iterate through string.
+		for character in string:
+			if node.has_child(character):
+				node = node.children[character]
+			else:
+				child = PrefixTreeNode(character)
+				node.add_child(character, child)
+				node = child
+				delta = True
+		if delta:
+			self.size += 1
+		node.terminal = True
 
 	def _find_node(self, string):
 		'''
@@ -69,21 +92,38 @@ class PrefixTree:
 			node. Search is done iteratively with a loop
 			starting from the root node.
 		'''
-		# Match the empty string.
-		if len(string) == 0:
-			return self.root, 0
-		# Start with the root node.
+		# Initialize node & depth.
 		node = self.root
-		# ==TODO==
+		depth = 0
+		# Iterate through string.
+		for character in string:
+			if node.has_child(character):
+				node = node.get_child(character)
+				depth += 1
+			else:
+				node = None
+				break
+		return node, depth
 
-	def complete(self, prefix):
+	def complete(self, prefix=''):
 		'''
 			Return a list of all strings stored in this
 			prefix tree that start with the given prefix string.
 		'''
+		# Initialize node & depth from given string.
+		node, depth = self._find_node(prefix)
 		# Create a list of completions in prefix tree.
 		completions = []
-		# ==TODO==
+		# Mini-function to visit each node.
+		def visit(v_node, v_prefix):
+			if v_node.is_terminal():
+				completions.append(v_prefix)
+		# Ensure node exists.
+		if node is not None:
+			# Run traversal helper function.
+			self._traverse(node, prefix, visit)
+		print(completions)
+		return completions
 
 	def strings(self):
 		'''
@@ -91,8 +131,7 @@ class PrefixTree:
 			stored in this prefix tree.
 		'''
 		# Create a list of all strings in prefix tree.
-		all_strings = []
-		# ==TODO==
+		return self.complete()
 
 	def _traverse(self, node, prefix, visit):
 		'''
@@ -100,7 +139,10 @@ class PrefixTree:
 			traversal. Start at the given node and visit each
 			node with the given function.
 		'''
-		# ==TODO==
+		visit(node, prefix)
+		for character, child in node.children.items():
+			self._traverse(child, prefix + child.character, visit)
+			print(prefix, child)
 
 def create_prefix_tree(strings):
 	print(f'strings: {strings}')
