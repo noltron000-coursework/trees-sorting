@@ -122,7 +122,6 @@ class PrefixTree:
 		if node is not None:
 			# Run traversal helper function.
 			self._traverse(node, prefix, visit)
-		print(completions)
 		return completions
 
 	def strings(self):
@@ -142,7 +141,6 @@ class PrefixTree:
 		visit(node, prefix)
 		for character, child in node.children.items():
 			self._traverse(child, prefix + child.character, visit)
-			print(prefix, child)
 
 def create_prefix_tree(strings):
 	print(f'strings: {strings}')
@@ -193,17 +191,17 @@ if __name__ == '__main__':
 		'Seashells': (
 			'Shelly sells seashells by the sea shore'
 		).split(),
-		# 'Peppers': (
-		# 	'Peter Piper picked a peck of pickled peppers'
-		# ).split(),
-		# 'Woodchuck': (
-		# 	'How much wood would a wood chuck chuck'
-		# 	' if a wood chuck could chuck wood'
-		# ).split()
+		'Peppers': (
+			'Peter Piper picked a peck of pickled peppers'
+		).split(),
+		'Woodchuck': (
+			'How much wood would a wood chuck chuck'
+			' if a wood chuck could chuck wood'
+		).split()
 	}
 	# Create a prefix tree with the similar
 	# words in each tongue-twister.
 	for name, strings in tongue_twisters.items():
-		print('\n' + '='*80 + '\n')
+		print('\n' + '='*60 + '\n')
 		print(f'{name} tongue-twister:')
 		create_prefix_tree(strings)
