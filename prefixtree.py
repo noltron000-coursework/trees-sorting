@@ -19,7 +19,7 @@ class PrefixTree:
 	'''
 	# Constant for the start character
 	# stored in the prefix tree's root node.
-	START_CHARACTER = '^'
+	START_CHARACTER = ''
 
 	def __init__(self, strings=None):
 		'''
@@ -69,6 +69,8 @@ class PrefixTree:
 		'''
 		# Initialize node.
 		node = self.root
+		# Delta keeps track of whether a node is created.
+		# Its important to keep track of size.
 		delta = False
 		# Iterate through string.
 		for character in string:
