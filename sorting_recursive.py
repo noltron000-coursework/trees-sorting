@@ -65,6 +65,7 @@ def merge_sort(items):
 
 	# Merge sorted halves into one list in sorted order.
 	items[:] = merge(items1, items2)
+	return items
 
 def partition(items, low, high):
 	'''
