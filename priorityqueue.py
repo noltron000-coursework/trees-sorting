@@ -75,7 +75,7 @@ class PriorityQueue(object):
 		# Remove and return minimum item from heap.
 		return self.heap.delete_min()[0]
 
-	def push_pop(self, item, priority):
+	def push_pop(self, item, priority = inf):
 		'''
 		Remove and return the item at the front of this
 		priority queue, and insert the given item in order
@@ -83,9 +83,9 @@ class PriorityQueue(object):
 		This method is more efficient than
 		calling dequeue and then enqueue.
 		'''
-		if self.size() == 0:
+		if self.is_empty():
 			raise ValueError(
 				'Priority queue is empty and has no front item'
 			)
-		# ==TODO==
 		# Replace and return minimum item from heap.
+		return self.heap.replace_min((priority, item))[0]
