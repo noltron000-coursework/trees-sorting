@@ -60,7 +60,7 @@ class PriorityQueue(object):
 		if self.is_empty():
 			return None
 		# Return minimum item from heap.
-		return self.heap.items[0]
+		return self.heap.get_min()[0]
 
 	def dequeue(self):
 		'''
