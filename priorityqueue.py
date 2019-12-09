@@ -5,8 +5,8 @@ class PriorityQueue(object):
 	PriorityQueue: a partially ordered queue with methods
 	to enqueue items in priority order and to access
 	and dequeue its highest priority item.
-	Item pairs are stored in a binary
-	min heap for its efficient operations.
+	Item pairs are stored in a tuples, and added to
+	a binary min heap for its efficient operations.
 	'''
 
 	def __init__(self):
