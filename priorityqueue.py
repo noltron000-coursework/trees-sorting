@@ -68,12 +68,12 @@ class PriorityQueue(object):
 		priority queue, or raise ValueError
 		if this priority queue is empty.
 		'''
-		if self.size() == 0:
+		if self.is_empty():
 			raise ValueError(
 				'Priority queue is empty and has no front item'
 			)
-		# ==TODO==
 		# Remove and return minimum item from heap.
+		return self.heap.delete_min()[0]
 
 	def push_pop(self, item, priority):
 		'''
