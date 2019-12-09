@@ -1,3 +1,4 @@
+from math import inf
 from binaryheap import BinaryMinHeap
 
 class PriorityQueue(object):
@@ -39,14 +40,16 @@ class PriorityQueue(object):
 		'''
 		return self.heap.size()
 
-	def enqueue(self, item, priority):
+	def enqueue(self, item, priority = inf):
 		'''
 		Insert the given item into this priority queue
 		in order according to the given priority.
+		If no priority is given, it is given no priority,
+		which is represented by the number, infinity.
 		'''
-		# ==TODO==
 		# Insert given item into heap in order,
 		# according to given priority.
+		self.heap.insert((priority, item))
 
 	def front(self):
 		'''
