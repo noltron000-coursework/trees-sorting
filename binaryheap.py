@@ -28,9 +28,7 @@ class BinaryMinHeap(object):
 		'''
 		Return True if this heap is empty, or False otherwise.
 		'''
-		# ==TODO==
-		# Check if empty based on the #items in the list.
-		# ...
+		return self.size() == 0
 
 	def size(self):
 		'''
