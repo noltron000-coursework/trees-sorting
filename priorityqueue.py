@@ -22,7 +22,7 @@ class PriorityQueue(object):
 		Return a string representation of this priority queue.
 		'''
 		return (
-			f'PriorityQueue({self.size()} items, '
+			f'PriorityQueue({self.length()} items, '
 			f'front={self.front()})'
 		)
 
