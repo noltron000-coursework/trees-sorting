@@ -54,9 +54,8 @@ class PriorityQueue(object):
 		this priority queue without removing it,
 		or None if this priority queue is empty.
 		'''
-		if self.size() == 0:
+		if self.is_empty():
 			return None
-		# ==TODO==
 		# Return minimum item from heap.
 		return self.heap.items[0]
 
