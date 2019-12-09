@@ -130,20 +130,24 @@ class BinaryMinHeap(object):
 			# This index is the root node.
 			# It does not have a parent.
 			return
+
 		if not (0 <= index <= self._last_index()):
 			raise IndexError(f'Invalid index: {index}')
+
 		# Get the item's value.
 		item = self.items[index]
+
 		# Get the parent's index and value.
 		parent_index = self._parent_index(index)
 		parent_item = self.items[parent_index]
-		# ==TODO==
+
 		# If values are out of order,
 		# swap this item with parent item.
-		# ...
-		# ==TODO==
-		# Recursively bubble up again if necessary.
-		# ...
+		if item < parent_item:
+			self.items[parent_index] = item
+			self.items[index] = parent_item
+			# Recursively bubble up again if necessary.
+			self._bubble_up(parent_index)
 
 	def _bubble_down(self, index):
 		'''
@@ -161,25 +165,45 @@ class BinaryMinHeap(object):
 		# Get the index of the item's left and right children.
 		left_index = self._left_child_index(index)
 		right_index = self._right_child_index(index)
+
 		if left_index > self._last_index():
 			# This index is a leaf node.
 			# It does not have any children.
 			return
-		# Get the item's value
+		else:
+			# The left item exists.
+			left_item = self.items[left_index]
+
+		if right_index > self._last_index():
+			# This index has only one child.
+			# A rarity, but it happens.
+			right_item = None
+		else:
+			# The right item exists.
+			right_item = self.items[right_index]
+
+		# Get the item's value.
 		item = self.items[index]
-		# ==TODO==
+
 		# Determine which child item
 		# to compare this node's item to.
-		child_index = 0
-		# ...
-		# ==TODO==
-		# If values are out of order,
-		# swap this item with a child item.
+		if right_item is None:
+			child_index = left_index
+		elif left_item > right_item:
+			child_index = right_index
+		else:
+			child_index = left_index
+
+		# Get the child item's value.
 		child_item = self.items[child_index]
-		# ...
-		# ==TODO==
-		# Recursively bubble down again if necessary.
-		# ...
+
+		# If values are out of order,
+		# swap this item with the child item.
+		if child_item < item:
+			self.items[index] = child_item
+			self.items[child_index] = item
+			# Recursively bubble down again if necessary.
+			self._bubble_down(child_index)
 
 	def _last_index(self):
 		'''
