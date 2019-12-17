@@ -60,7 +60,7 @@ class PriorityQueue(object):
 		if self.is_empty():
 			return None
 		# Return minimum item from heap.
-		return self.heap.get_min()[0]
+		return self.heap.get_min()[1]
 
 	def dequeue(self):
 		'''
@@ -73,7 +73,7 @@ class PriorityQueue(object):
 				'Priority queue is empty and has no front item'
 			)
 		# Remove and return minimum item from heap.
-		return self.heap.delete_min()[0]
+		return self.heap.delete_min()[1]
 
 	def push_pop(self, item, priority = inf):
 		'''
@@ -88,4 +88,4 @@ class PriorityQueue(object):
 				'Priority queue is empty and has no front item'
 			)
 		# Replace and return minimum item from heap.
-		return self.heap.replace_min((priority, item))[0]
+		return self.heap.replace_min((priority, item))[1]
