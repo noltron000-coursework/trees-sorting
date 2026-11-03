@@ -65,7 +65,8 @@ def bucket_sort(numbers, num_buckets=10):
 	# numbers in subranges of input range.
 	buckets = [None] * num_buckets
 	for number in numbers:
-		if number % num_buckets ** layer
+		if number % num_buckets ** layer:
+			pass
 
 	# ==TODO==
 	# Loop over given numbers and
